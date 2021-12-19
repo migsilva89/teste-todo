@@ -24,6 +24,14 @@
     <title>SYSTEM</title>
 </head>
 <body>
-    SYSTEM TAMOS IN 
+
+    <?php
+    echo "<h1>Welcome $logado</h1>";
+    ?>
+
+    <div>
+        <a href="sair.php" class=""> SAIR </a>
+    </div>
+
 </body>
 </html>
