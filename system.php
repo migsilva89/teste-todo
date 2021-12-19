@@ -19,7 +19,7 @@
 <!-- AQUI VAMOS ADICIONAR CONEXAO DB PARA A TODO TABLE:: -->
 <?php 
     
-    if(isset($_POST['submit'])) 
+    if(isset($_POST['submit'],)) 
     {
     // TESTE:
     // print_r('task_desc: ' . $_POST ['addTodo']);
@@ -34,7 +34,6 @@
     
     echo ("ADDED");
     // header('Location: system.php');
-
     }
 ?>
 
@@ -65,7 +64,7 @@
 
         <br></br>
         <div>
-            <a href="sair.php" class=""> SAIR </a>
+            <a href="sair.php" class=""> SAIR </a> / <a href="list.php" class=""> LIST </a>
         </div>
     </form>
 </body>
