@@ -41,6 +41,8 @@ if(isset($_POST['submit']))
         // TESTAR CONEXAO AO INSERT_INTO
         // echo mysqli_error($conexao);
 
+        // SE FOR VALIDO VOLTA PARA O LOGIN::
+        header('Location: login.php');
     }
 ?>
 

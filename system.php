@@ -15,6 +15,18 @@
     $result = $conexao->query($sql);
 ?>
 
+<!-- AQUI VAMOS ADICIONAR CONEXAO DB PARA A TODO TABLE:: -->
+<?php 
+    
+    // if(isset($_POST['submit'])) 
+    // {
+    // include_once('config.php');
+    // }
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,14 +36,26 @@
     <title>SYSTEM</title>
 </head>
 <body>
+    <form action="system.php" method="POST">
+        <?php
+        // ASSIM VAI BUSCAR O EMAIL DO USAR PARA EXPOR: $logado = userEmail::
+        echo "<h1>Welcome $logado</h1>";
+        ?>
 
-    <?php
-    echo "<h1>Welcome $logado</h1>";
-    ?>
+        <!-- ADD TODO FORM:: -->
+        <br></br>
+        <div class="inputBox">      
+            <input type="text" name="addTodo" id="addTodo" class="inputTodo" required>
+            <label for="addTodo" class="addTodo">Type your todo and submit</label>
+        </div>
 
-    <div>
-        <a href="sair.php" class=""> SAIR </a>
-    </div>
+        <br></br>
+        <input type="submit" name="submit" id="submit" placeholder="Submit">
 
+        <br></br>
+        <div>
+            <a href="sair.php" class=""> SAIR </a>
+        </div>
+    </form>
 </body>
 </html>
