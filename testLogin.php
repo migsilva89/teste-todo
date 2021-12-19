@@ -1,5 +1,6 @@
 <?php 
-
+    // COMECAR SESSAO::::
+    session_start();
 
     // testar a coneccao ao login.php com print_r::
     // print_r($_REQUEST);
@@ -32,11 +33,15 @@
             if(mysqli_num_rows($result) < 1)
             {   
                 // SE NAO VOLTA PARA LOGIN
+                unset($_SESSION['email']);
+                unset($_SESSION['senha']);
                 header('Location: login.php');
             }
             else 
             {
                 // SE SIM MANDA PARA SYSTEM.PHP
+                $_SESSION['email'] = $email;
+                $_SESSION['senha'] = $senha;
                 header('Location: system.php');
             }
         // SE NAO EXISTIR ele volta para o LOGIN.PHP
