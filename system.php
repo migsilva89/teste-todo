@@ -32,9 +32,23 @@
     $result = mysqli_query($conexao, "INSERT INTO todos_table(task_desc)
     VALUES ('$task_desc')");
     
-    echo ("ADDED");
+    // echo ("ADDED");
+    // header('Location: list.php');
     // header('Location: system.php');
     }
+?>
+
+<!-- CONECTAR TASKS_TABLE_DB TO OUR VIEW -->
+<?php
+    
+    $sql = "SELECT * FROM todos_table ORDER BY input_date DESC";
+
+    include_once('config.php');
+    $result = $conexao->query($sql);
+
+    // TESTAR CONEXAO A RESULT
+    // print_r($result);
+
 ?>
 
 <!DOCTYPE html>
@@ -43,9 +57,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SYSTEM</title>
+    <title>APP</title>
 </head>
 <body>
+
     <form action="system.php" method="POST">
         <?php
         // ASSIM VAI BUSCAR O EMAIL DO USER PARA EXPOR: $logado = userEmail::
@@ -62,10 +77,38 @@
         <br></br>
         <input type="submit" name="submit" id="submit" placeholder="Submit">
 
-        <br></br>
-        <div>
-            <a href="sair.php" class=""> SAIR </a> / <a href="list.php" class=""> LIST </a>
-        </div>
+        
     </form>
+
+    <br></br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>DateAdded</th>
+                <th>Settings</th>
+            </tr>
+        </thead>
+
+        <!-- LACO DE REPETICAO DENTOR DO BODY DE FORMA A EXPOR CADA UM DOS REGISTOS DA TABELA -->
+       <tbody>
+            <?php 
+                while($user_data = mysqli_fetch_assoc($result))
+                {
+                    echo "<tr>";
+                    echo "<td>".$user_data['task_desc']."</td>";
+                    echo "<td>".$user_data['input_date']."</td>";
+                    echo "<td>ACOES</td>";
+                }
+            ?>
+       </tbody>
+    </table> 
+    
+    <br></br>
+    <div>
+        <a href="sair.php" class=""> SAIR </a> 
+    </div>
+
 </body>
 </html>
