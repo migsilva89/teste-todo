@@ -15,16 +15,27 @@
     $result = $conexao->query($sql);
 ?>
 
+
 <!-- AQUI VAMOS ADICIONAR CONEXAO DB PARA A TODO TABLE:: -->
 <?php 
     
-    // if(isset($_POST['submit'])) 
-    // {
-    // include_once('config.php');
-    // }
+    if(isset($_POST['submit'])) 
+    {
+    // TESTE:
+    // print_r('task_desc: ' . $_POST ['addTodo']);
 
+    include_once('config.php');
 
+    $task_desc = $_POST['addTodo'];
+    // print_r($task_desc);
 
+    $result = mysqli_query($conexao, "INSERT INTO todos_table(task_desc)
+    VALUES ('$task_desc')");
+    
+    echo ("ADDED");
+    // header('Location: system.php');
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +49,7 @@
 <body>
     <form action="system.php" method="POST">
         <?php
-        // ASSIM VAI BUSCAR O EMAIL DO USAR PARA EXPOR: $logado = userEmail::
+        // ASSIM VAI BUSCAR O EMAIL DO USER PARA EXPOR: $logado = userEmail::
         echo "<h1>Welcome $logado</h1>";
         ?>
 
