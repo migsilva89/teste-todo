@@ -7,7 +7,12 @@
     <title>TASKS LIST</title>
 </head>
 <body>
-<a href="system.php">Back</a>
+
     <h1>TASKS LIST</h1>
+
+    <div>
+        <a href="sair.php" class=""> SAIR </a> / <a href="system.php" class=""> ADD TODO </a>
+    </div>
+
 </body>
 </html>
