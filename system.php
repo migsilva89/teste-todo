@@ -34,7 +34,8 @@
     
     // echo ("ADDED");
     // header('Location: list.php');
-    // header('Location: system.php');
+    // ENCAMINHAR PARA SYSTEM DE FORMA A PAGINA FAZER RELOAD::
+    header('Location: system.php');
     }
 ?>
 
@@ -76,8 +77,6 @@
 
         <br></br>
         <input type="submit" name="submit" id="submit" placeholder="Submit">
-
-        
     </form>
 
     <br></br>
@@ -90,7 +89,6 @@
                 <th>Settings</th>
             </tr>
         </thead>
-
         <!-- LACO DE REPETICAO DENTOR DO BODY DE FORMA A EXPOR CADA UM DOS REGISTOS DA TABELA -->
        <tbody>
             <?php 
@@ -106,6 +104,7 @@
     </table> 
     
     <br></br>
+
     <div>
         <a href="sair.php" class=""> SAIR </a> 
     </div>
