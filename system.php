@@ -101,8 +101,11 @@
                     echo "<td>".$user_data['input_date']."</td>";
                     echo 
                         "<td>
-                            <a href='edit.php?id=$user_data[id]'> 
+                            <a class='' href='edit.php?id=$user_data[id]'> 
                             Edit
+                            </a>
+                            <a class='' href='delete.php?id=$user_data[id]'> 
+                            Delete
                             </a>
                         </td>";
                     echo "<tr>";

@@ -45,8 +45,6 @@
             $id
         );
 
-
-        
         $result = $conexao->query($sqlUpdate);
         header('Location: system.php');
     }
@@ -68,13 +66,13 @@
                 type="text" 
                 name="task_desc" 
                 id="task_desc" 
-                class="replace-me" 
+                class="" 
                 value="<?php echo $task_desc?>" 
                 required
             >
             <label 
                 for="task_desc" 
-                class="replace-me"
+                class=""
             >
             Edit your todo and submit
             </label>
