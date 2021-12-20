@@ -1,49 +1,55 @@
 <!-- AQUI VAMOS ADICIONAR CONEXAO DB PARA A TODO_TABLE:: -->
 <?php 
-    if(!empty($_GET['id']))
-    {
-        include_once('config.php');
 
-        $id = $_GET['id'];
-
-        $sqlSelect = "SELECT * FROM todos_table WHERE id=$id";
-
-        $result = $conexao->query($sqlSelect);
-
-        if($result->num_rows > 0)
-        {
-            while($user_data = mysqli_fetch_assoc($result))
-            {
-                $task_desc = $user_data['task_desc']; 
-            }
-        }
-        else 
-        {
-            header('Location: system.php');
-        }
+    if(empty($_GET['id'])){
+        header('Location: system.php');
+        exit;
     }
-?>
 
-<?php 
-   
-   if(!empty($_GET['id']) && $_POST['task_desc'])
-   { 
-    //    var_dump('Cheguei aqui',$_POST);
-    //    exit;
+    include_once('config.php');
 
-       include_once('config.php');
+    // Get from query. Ex ?id=21313&ganza=true
+    $id = (int) $_GET['id'];
 
-       $id = $_GET['id'];
+    // The user sent an empty id or invalid one.
+    if(empty($_GET['id']) || $_GET['id']  === '' || $id <= 0){
+        header('Location: system.php');
+        exit;
+    }
 
-       $task_desc = $_POST['task_desc'];
+    // Always select the record from database
+    $sqlSelect = sprintf("SELECT * FROM todos_table WHERE id=%s",$id);
+    $result = $conexao->query($sqlSelect);
 
-       $sqlUpdate = "UPDATE todos_table SET task_desc='$task_desc' WHERE id='$id'";
+    // If record was not found, kill
+    if($result->num_rows <= 0){
+        header('Location: system.php');
+        exit;
+    }
+    
+    // Associate the DB record with PHP variable
+    // $user_data holds the row data comming from the database.
+    $user_data = $result->fetch_assoc(); // Single row only.
+    $task_desc = $user_data['task_desc']; 
 
-       $result = $conexao->query($sqlUpdate);
+    // Its an update fella! Lets go.
+    if($_POST['task_desc']){
 
-       header('Location: system.php');
-   }
+        // Do not trust user inputs, awlays be safe and pass to mysql_real_escape_string
+        $descFiltered = $conexao->real_escape_string($_POST['task_desc']);
 
+        // Usar %s que vai ser substituido pelas variaveis
+        $sqlUpdate = sprintf(
+            "UPDATE todos_table SET task_desc='%s', input_date = NOW() WHERE id='%s'",
+            $descFiltered,
+            $id
+        );
+
+
+        
+        $result = $conexao->query($sqlUpdate);
+        header('Location: system.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -57,11 +63,21 @@
 <body>
 
     <form action="edit.php?id=<?php echo $id;?>" method="POST">
-    <!-- ADD TODO FORM:: -->
-        <br></br>
         <div class="inputBox">      
-            <input type="text" name="task_desc" id="task_desc" class="inputTodo" value="<?php echo $task_desc?>" required>
-            <label for="task_desc" class="task_desc">Edit your todo and submit</label>
+            <input 
+                type="text" 
+                name="task_desc" 
+                id="task_desc" 
+                class="replace-me" 
+                value="<?php echo $task_desc?>" 
+                required
+            >
+            <label 
+                for="task_desc" 
+                class="replace-me"
+            >
+            Edit your todo and submit
+            </label>
         </div>
         <br></br>
         <input type="submit" name="update" id="update">
@@ -72,6 +88,5 @@
     <div>
         <a href="system.php" class=""> BACK </a> 
     </div>
-
 </body>
 </html>
