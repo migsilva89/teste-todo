@@ -42,7 +42,7 @@
 <!-- CONECTAR TASKS_TABLE_DB TO OUR VIEW -->
 <?php
     
-    $sql = "SELECT * FROM todos_table ORDER BY input_date DESC";
+    $sql = "SELECT * FROM todos_table ORDER BY input_date ASC";
 
     include_once('config.php');
     $result = $conexao->query($sql);
@@ -84,6 +84,7 @@
     <table>
         <thead>
             <tr>
+                <th>No</th>
                 <th>Task</th>
                 <th>DateAdded</th>
                 <th>Settings</th>
@@ -95,9 +96,16 @@
                 while($user_data = mysqli_fetch_assoc($result))
                 {
                     echo "<tr>";
+                    echo "<td>".$user_data['id']."</td>";
                     echo "<td>".$user_data['task_desc']."</td>";
                     echo "<td>".$user_data['input_date']."</td>";
-                    echo "<td>ACOES</td>";
+                    echo 
+                        "<td>
+                            <a href='edit.php?id=$user_data[id]'> 
+                            Edit
+                            </a>
+                        </td>";
+                    echo "<tr>";
                 }
             ?>
        </tbody>
