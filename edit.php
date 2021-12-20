@@ -24,6 +24,28 @@
     }
 ?>
 
+<?php 
+   
+   if(!empty($_GET['id']) && $_POST['task_desc'])
+   { 
+    //    var_dump('Cheguei aqui',$_POST);
+    //    exit;
+
+       include_once('config.php');
+
+       $id = $_GET['id'];
+
+       $task_desc = $_POST['task_desc'];
+
+       $sqlUpdate = "UPDATE todos_table SET task_desc='$task_desc' WHERE id='$id'";
+
+       $result = $conexao->query($sqlUpdate);
+
+       header('Location: system.php');
+   }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,12 +56,12 @@
 </head>
 <body>
 
-    <form action="save_edit.php" method="POST">
+    <form action="edit.php?id=<?php echo $id;?>" method="POST">
     <!-- ADD TODO FORM:: -->
         <br></br>
         <div class="inputBox">      
-            <input type="text" name="addTodo" id="addTodo" class="inputTodo" value="<?php echo $task_desc?>" required>
-            <label for="addTodo" class="addTodo">Edit your todo and submit</label>
+            <input type="text" name="task_desc" id="task_desc" class="inputTodo" value="<?php echo $task_desc?>" required>
+            <label for="task_desc" class="task_desc">Edit your todo and submit</label>
         </div>
         <br></br>
         <input type="submit" name="update" id="update">
