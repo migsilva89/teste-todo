@@ -1,27 +1,8 @@
 <!-- AQUI VAMOS ADICIONAR CONEXAO DB PARA A TODO TABLE:: -->
 <?php 
-    
-    // if(!empty($_GET['id']))
-    // {
-    
-    //     include_once('config.php');
 
-    //     $id = $_GET['id'];
-
-    //     $sqlSelect = "SELECT * FROM todos_table WHERE id=$id";
-
-    //     $result = $conexao->query($sqlSelect);
-
-    //     $task_desc = $_POST['addTodo'];
-
-    //     print_r($result);
-        
-    // }
-
-    
     if(!empty($_GET['id']))
     {
-    
         include_once('config.php');
 
         $id = $_GET['id'];
