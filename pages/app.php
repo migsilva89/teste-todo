@@ -8,10 +8,12 @@ include (__DIR__.'/../partials/nav-auth.php');
 
         <!-- ADD TODO FORM:: -->
         <br></br>
-        <div class="inputBox">      
+        <div>      
             <input type="text" name="addTodo" id="addTodo" class="inputTodo" required>
             <label for="addTodo" class="addTodo">Type your todo and submit</label>
         </div>
+
+        <h1 class="bg-indigo-600 text-3xl font-bold underline">    Hello world!  </h1>
 
         <br></br>
         <input type="submit" name="submit" id="submit" placeholder="Submit">
