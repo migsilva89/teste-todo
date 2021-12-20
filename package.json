@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "dev": "npx tailwindcss -i ./assets/tailwind.css -o ./dist/styles.css --watch"
+  },
+
   "devDependencies": {
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.5",

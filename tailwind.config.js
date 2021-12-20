@@ -1,5 +1,10 @@
 module.exports = {
-  content: ["./**/*.{html,js,php}"],
+  content: [
+    "./**/*.php",
+    "./pages/**/*.{php,html}",
+    "./partials/**/*.{php,html}",
+    // more files here
+  ],
   theme: {
     extend: {},
   },
