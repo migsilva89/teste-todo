@@ -51,11 +51,27 @@
         header('Location: system.php');
         exit;
     }
+    
+    
+    //DELETE ITEM
+    if(!empty($_GET['action']) && $_GET['action'] == 'delete')
+    {
+        $sqlSelect = sprintf("SELECT * FROM todos_table WHERE id=%s",$id);
+        $result = $conexao->query($sqlSelect);
+
+        if($result->num_rows > 0)
+        {
+            $sqlDelete = "DELETE FROM todos_table WHERE id=$id";
+            $resultDelete = $conexao->query($sqlDelete);
+            
+        }
+        header('Location: system.php');
+    }
 
 
 
     // Its an update fella! Lets go.
-    if($_POST['task_desc'])
+    if (isset($_POST['task_desc']))
     {
         // Do not trust user inputs, awlays be safe and pass to mysql_real_escape_string
         $descFiltered = $conexao->real_escape_string($_POST['task_desc']);
@@ -71,6 +87,7 @@
         header('Location: system.php');
     }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
