@@ -1,26 +1,7 @@
 <?php 
-// IF STATMENT PARA CORRER O METHOD $POST::
-if(isset($_POST['submit'])) 
-
+    // IF STATMENT PARA CORRER O METHOD $POST::
+    if(isset($_POST['submit'])) 
     {
-        // TESTE:
-        // print_r('Nome: ' . $_POST ['nome']);
-        // print_r('<br>');
-        // print_r('email: ' . $_POST ['email']);
-        // print_r('<br>');
-        // print_r('telefone: ' . $_POST ['telefone']);
-        // print_r('<br>');
-        // print_r('genero: ' . $_POST ['genero']);
-        // print_r('<br>');
-        // print_r('data_nascimento: ' . $_POST ['data_nascimento']);
-        // print_r('<br>');
-        // print_r('cidade: ' . $_POST ['cidade']);
-        // print_r('<br>');
-        // print_r('estado: ' . $_POST ['estado']);
-        // print_r('<br>');
-        // print_r('endereco: ' . $_POST ['endereco']);
-        // print_r('<br>');
-
         // INCLUIR O NOSSO CONFIG.PHP::
         include_once('config.php');
 

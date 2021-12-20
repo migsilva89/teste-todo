@@ -1,3 +1,4 @@
+
 <?php 
     //SESSAO DE LOGIN SE TIVER LOGADO MANTEM SEMPRE NA SESSAO SE NAO VOLTA SEMPRE PARA O LOGIN.PHP::
 
@@ -6,10 +7,10 @@
     // print_r($_SESSION);
     if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
     {
-        unset($_SESSION['email']);
+     unset($_SESSION['email']);
         unset($_SESSION['senha']);
         header('Location: login.php');
-    }
+    }   
     $logado = $_SESSION['email'];
     $sql = "SELECT * FROM usuarios ORDER BY id DESC";
     $result = $conexao->query($sql);
@@ -21,21 +22,21 @@
     
     if(isset($_POST['submit'],)) 
     {
-    // TESTE:
-    // print_r('task_desc: ' . $_POST ['addTodo']);
+        // TESTE:
+        // print_r('task_desc: ' . $_POST ['addTodo']);
 
-    include_once('config.php');
+        include_once('config.php');
 
-    $task_desc = $_POST['addTodo'];
-    // print_r($task_desc);
+        $task_desc = $_POST['addTodo'];
+        // print_r($task_desc);
 
-    $result = mysqli_query($conexao, "INSERT INTO todos_table(task_desc)
-    VALUES ('$task_desc')");
-    
-    // echo ("ADDED");
-    // header('Location: list.php');
-    // ENCAMINHAR PARA SYSTEM DE FORMA A PAGINA FAZER RELOAD::
-    header('Location: system.php');
+        $result = mysqli_query($conexao, "INSERT INTO todos_table(task_desc)
+        VALUES ('$task_desc')");
+        
+        // echo ("ADDED");
+        // header('Location: list.php');
+        // ENCAMINHAR PARA SYSTEM DE FORMA A PAGINA FAZER RELOAD::
+        header('Location: system.php');
     }
 ?>
 
@@ -52,6 +53,7 @@
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,6 +61,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
 
@@ -87,6 +90,7 @@
                 <th>No</th>
                 <th>Task</th>
                 <th>DateAdded</th>
+                <th>Is_done</th>
                 <th>Settings</th>
             </tr>
         </thead>
@@ -95,10 +99,15 @@
             <?php 
                 while($user_data = mysqli_fetch_assoc($result))
                 {
+                    //VERDADEIRO DO IF : FALSE TO IF 
+                    $className = $user_data['is_done'] ? 'underline' : ''; 
+                    $buttonLable = $user_data['is_done'] ? 'undone' : 'done';
+
                     echo "<tr>";
                     echo "<td>".$user_data['id']."</td>";
-                    echo "<td>".$user_data['task_desc']."</td>";
+                    echo "<td class='$className'>".$user_data['task_desc']."</td>";
                     echo "<td>".$user_data['input_date']."</td>";
+                    echo "<td>".$user_data['is_done']."</td>";
                     echo 
                         "<td>
                             <a class='' href='edit.php?id=$user_data[id]'> 
@@ -106,6 +115,9 @@
                             </a>
                             <a class='' href='delete.php?id=$user_data[id]'> 
                             Delete
+                            </a>
+                            <a class='' href='edit.php?id=$user_data[id]&action=done'> 
+                            $buttonLable
                             </a>
                         </td>";
                     echo "<tr>";

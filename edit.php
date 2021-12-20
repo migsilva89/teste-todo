@@ -1,7 +1,8 @@
 <!-- AQUI VAMOS ADICIONAR CONEXAO DB PARA A TODO_TABLE:: -->
 <?php 
 
-    if(empty($_GET['id'])){
+    if(empty($_GET['id']))
+    {
         header('Location: system.php');
         exit;
     }
@@ -12,7 +13,8 @@
     $id = (int) $_GET['id'];
 
     // The user sent an empty id or invalid one.
-    if(empty($_GET['id']) || $_GET['id']  === '' || $id <= 0){
+    if(empty($_GET['id']) || $_GET['id']  === '' || $id <= 0)
+    {
         header('Location: system.php');
         exit;
     }
@@ -22,7 +24,8 @@
     $result = $conexao->query($sqlSelect);
 
     // If record was not found, kill
-    if($result->num_rows <= 0){
+    if($result->num_rows <= 0)
+    {
         header('Location: system.php');
         exit;
     }
@@ -31,10 +34,29 @@
     // $user_data holds the row data comming from the database.
     $user_data = $result->fetch_assoc(); // Single row only.
     $task_desc = $user_data['task_desc']; 
+    $is_done = $user_data['is_done'];
+
+    // TOOGLE DONE/NOTDONE
+    if(!empty($_GET['action']) && $_GET['action'] == 'done')
+    {
+        $sqlUpdate = sprintf
+        (
+            "UPDATE todos_table SET is_done='%s', input_date = NOW() WHERE id='%s'",
+            $is_done == 1 ? 0 :1,
+            $id
+        );
+
+        $result = $conexao->query($sqlUpdate);
+
+        header('Location: system.php');
+        exit;
+    }
+
+
 
     // Its an update fella! Lets go.
-    if($_POST['task_desc']){
-
+    if($_POST['task_desc'])
+    {
         // Do not trust user inputs, awlays be safe and pass to mysql_real_escape_string
         $descFiltered = $conexao->real_escape_string($_POST['task_desc']);
 
