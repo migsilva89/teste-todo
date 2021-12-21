@@ -43,7 +43,7 @@
 <!-- CONECTAR TASKS_TABLE_DB TO OUR VIEW -->
 <?php
     
-    $sql = "SELECT * FROM todos_table ORDER BY input_date DESC";
+    $sql = "SELECT * FROM todos_table ORDER BY input_date ASC";
 
     include_once('config.php');
     $result = $conexao->query($sql);

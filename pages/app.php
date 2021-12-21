@@ -5,14 +5,14 @@ include (__DIR__.'/../partials/nav-auth.php');
 
 <!-- BACK BUTTON -->
    
-<div class="md:pt-24 drop-shadow-2xl md:px-36 px-16 justify-center items-center ">
+<div class="md:pt-24 drop-shadow-2xl md:px-24 px-16 justify-center items-center ">
     <form action="system.php" method="POST">
         <!-- ADD TODO FORM:: -->
-        <div class="p-4 flex bg-white md:text-left text-center rounded-xl mb-36">      
-            <input type="text" name="addTodo" id="addTodo" class="inputTodo md:text-left text-center border-solid border-2 rounded-lg w-full  border-red-300 p-2" placeholder="Add Your Task" required>
+        <div class="p-4 flex bg-white md:text-left text-center rounded-xl mb-28">      
+            <input type="text" name="addTodo" id="addTodo" class=" hover:bg-gray-100 inputTodo md:text-left text-center border-solid border-2 rounded-lg w-full  border-red-300 p-2" placeholder="Add Your Task" required>
             <label for="addTodo" class="addTodo"></label>
             <p class="pl-4 text-center">
-            <input class="cursor-pointer  hover:bg-red-300 hover:shadow-xl border-2 p-2 rounded-xl text-white bg-red-400 px-8" type="submit" name="submit" id="submit" value="Add Task">
+            <input class="cursor-pointer hover:bg-red-300 hover:shadow-xl border-2 p-2 rounded-xl text-white bg-red-400 px-8" type="submit" name="submit" id="submit" value="Add Task">
             </p>
         </div>
     </form>
