@@ -1,9 +1,12 @@
 <!-- HOME VIEW GUESTS-->
+<?php
+include (__DIR__.'/../partials/template-head.php');
+?>
 
-<div class="w-auto h-screen bg-cover" style="background-image: url('images/background_home.svg')">
+<divclass=" w-auto h-screen bg-cover" style="background-image: url('images/background_home.svg')">
     <div class="md:p-24 pt-24 grid md:grid-cols-2 grid-cols-1 grid-rows-4">
         <!-- COLUNA ESQUERDA  -->
-        <div class="text-white text-center md:text-left font-bold md:text-4xl text-3xl">
+        <div data-aos="fade-right" class="text-white text-center md:text-left font-bold md:text-4xl text-3xl">
             Controla as tuas tarefas!
             <p>Gere a tua vida!</p>
             Faz "tudo"
@@ -11,7 +14,7 @@
             <hr class="hidden md:block">
         </div>
         <!-- COLUNA DIREIRA -->
-        <div class="md:text-right text-center md:absolute md:bottom-32 md:right-20 "> 
+        <div data-aos="fade-left" class="md:text-right text-center md:absolute md:bottom-32 md:right-20 "> 
             <div class="pb-16 md:text-8xl text-6xl font-extrabold justify-self-start ">
                 FAZ TO-DO
             </div>
@@ -24,3 +27,18 @@
 
     </div>
 </div>
+
+<!-- SCRIPT AOS CDN -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+
+        AOS.init({
+        duration: 1000,
+        })
+
+    </script>
+
+<?php
+ include (__DIR__.'/../partials/template-head-close.php'); 
+?>
