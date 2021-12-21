@@ -23,32 +23,15 @@ include (__DIR__.'/../partials/template-head.php');
                 </div>
                 
                 <div class="inputBox">
-                    <input type="tel" name="telefone" id="telefone" class="inputUser" required>
-                    <label for="telefone" class="labelInput">Telefone</label>
-                </div>
-                
-                <label for="data_nascimento"><b>Data de Nascimento:</b></label>
-                <input type="date" name="data_nascimento" id="data_nascimento" required>
-                
-                <div class="inputBox">
                     <input type="text" name="cidade" id="cidade" class="inputUser" required>
                     <label for="cidade" class="labelInput">Cidade</label>
-                </div>
-                
-                <div class="inputBox">
-                    <input type="text" name="estado" id="estado" class="inputUser" required>
-                    <label for="estado" class="labelInput">Estado</label>
-                </div>
-                
-                <div class="inputBox">
-                    <input type="text" name="endereco" id="endereco" class="inputUser" required>
-                    <label for="endereco" class="labelInput">Endereço</label>
                 </div>
                 
                 <input type="submit" name="submit" id="submit">
             </fieldset>
         </form>
     </div>
+    
 <?php
  include (__DIR__.'/../partials/template-head-close.php'); 
 ?>
