@@ -88,42 +88,6 @@
     }
 ?>
 
+<?php
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDIT</title>
-</head>
-<body>
-
-    <form action="edit.php?id=<?php echo $id;?>" method="POST">
-        <div class="inputBox ">      
-            <input 
-                type="text" 
-                name="task_desc" 
-                id="task_desc" 
-                class="" 
-                value="<?php echo $task_desc?>" 
-                required
-            >
-            <label 
-                for="task_desc" 
-                class=""
-            >
-            Edit your todo and submit
-            </label>
-        </div>
-        <br></br>
-        <input type="submit" name="update" id="update">
-    </form>
-
-    <br></br>
-
-    <div>
-        <a href="system.php" class=""> BACK </a> 
-    </div>
-</body>
-</html>
+include ('pages/edit.php');
