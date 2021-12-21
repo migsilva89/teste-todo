@@ -9,18 +9,11 @@
         $nome = $_POST['nome'];
         $senha = $_POST['senha'];
         $email = $_POST['email'];
-        $telefone = $_POST['telefone'];
-        $data_nasc = $_POST['data_nascimento'];
         $cidade = $_POST['cidade'];
-        $estado = $_POST['estado'];
-        $endereco = $_POST['endereco'];
-
-        // dps encaminhamos para a DB com o MYSQSL QUERY migrando as viaraveis para os respectivos campos::
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,data_nasc,cidade,estado,endereco)
-        VALUES ('$nome','$senha','$email','$telefone','$data_nasc','$cidade','$estado','$endereco')");
         
-        // TESTAR CONEXAO AO INSERT_INTO
-        // echo mysqli_error($conexao);
+        // dps encaminhamos para a DB com o MYSQSL QUERY migrando as viaraveis para os respectivos campos::
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,cidade)
+        VALUES ('$nome','$senha','$email','$cidade')");
 
         // SE FOR VALIDO VOLTA PARA O LOGIN::
         header('Location: login.php');
@@ -28,5 +21,5 @@
 ?>
 
 <?php
-
-include ('pages/register.php');
+    include ('pages/register.php');
+?>
