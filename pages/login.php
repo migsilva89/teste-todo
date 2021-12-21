@@ -11,7 +11,7 @@ include (__DIR__.'/../partials/template-head.php');
         </a>
     </div>
 
-    <div class="md:pt-64 drop-shadow-2xl flex justify-center items-center " >
+    <div class="md:pt-36 drop-shadow-2xl flex justify-center items-center " >
         <div class="grid-rows-2">
 
             <!-- ROW 1 == IMAGEM -->
