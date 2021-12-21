@@ -5,7 +5,7 @@ include (__DIR__.'/../partials/nav-auth.php');
 
 <!-- BACK BUTTON -->
 
-<div class="mx-auto max-w-screen-xl rounded-xl px-16 h-screen justify-center items-center">
+<div class="mx-auto max-w-screen-xl px-16 justify-center items-center">
     <form action="system.php" method="POST">
         <!-- ADD TODO FORM:: -->
         <div class="p-4 flex bg-white md:text-left text-center rounded-xl mb-28">      
