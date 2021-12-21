@@ -4,8 +4,8 @@ include (__DIR__.'/../partials/nav-auth.php');
 ?>
 
 <!-- BACK BUTTON -->
-   
-<div class="md:pt-24 drop-shadow-2xl md:px-24 px-16 justify-center items-center ">
+
+<div class="mx-auto max-w-screen-xl rounded-xl px-16 h-screen justify-center items-center">
     <form action="system.php" method="POST">
         <!-- ADD TODO FORM:: -->
         <div class="p-4 flex bg-white md:text-left text-center rounded-xl mb-28">      
@@ -17,7 +17,7 @@ include (__DIR__.'/../partials/nav-auth.php');
         </div>
     </form>
 
-    <div class="bg-white rounded-xl w-full">
+    <div class="bg-white rounded-xl w-full ">
         <!-- LACO DE REPETICAO DENTOR DO BODY DE FORMA A EXPOR CADA UM DOS REGISTOS DA TABELA -->
        <ul class="divide-y rounded-xl divide-gray-200">
             <?php 
@@ -76,6 +76,7 @@ include (__DIR__.'/../partials/nav-auth.php');
        </ul>
     </div> 
 </div>
+
 <?php
  include (__DIR__.'/../partials/template-head-close.php'); 
 ?>
