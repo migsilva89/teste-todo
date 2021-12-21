@@ -4,11 +4,9 @@ include (__DIR__.'/../partials/template-head.php');
 <!-- ADICIONAR BACK BUTTON  -->
 <a href="home.php">Back</a>
     <div>
-        <!-- FORM COM METHOD POST PARA SACAR A INFO -->
+        
         <form action="register.php" method="POST">
             <fieldset>
-                <!-- <legend><b></b></legend> -->
-                
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputUser" required>
                     <label for="nome" class="labelInput">Nome completo</label>
