@@ -5,7 +5,10 @@ include (__DIR__.'/../partials/template-head.php');
 
 <div>
     <div class="p-16 md:text-left text-center">
-        <a class="border-2 p-2 rounded-xl text-white hover:text-xl hover:bg-shadow-2xl bg-red-400 px-8" href="home.php">Back</a>
+        <a class="border-2 p-2 rounded-xl text-white hover:text-xl hover:bg-shadow-2xl bg-red-400 px-8" 
+            href="home.php"
+        >Back
+        </a>
     </div>
 
     <div class="md:pt-64 drop-shadow-2xl flex justify-center items-center " >
