@@ -33,7 +33,7 @@ include (__DIR__.'/../partials/nav-auth.php');
                 while($user_data = mysqli_fetch_assoc($result))
                 {
                     //VERDADEIRO DO IF : FALSE TO IF 
-                    $className = $user_data['is_done'] ? 'underline' : ''; 
+                    $className = $user_data['is_done'] ? 'line-through' : ''; 
                     $buttonLable = $user_data['is_done'] ? 'undone' : 'done';
 
                     echo "<tr>";

@@ -100,7 +100,7 @@
 <body>
 
     <form action="edit.php?id=<?php echo $id;?>" method="POST">
-        <div class="inputBox">      
+        <div class="inputBox ">      
             <input 
                 type="text" 
                 name="task_desc" 

@@ -8,6 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- <link href="/dist/styles.css?v=<?php //echo time()?>" rel="stylesheet"> -->
 </head>
-<body  class="w-auto h-screen bg-cover " style="background-image: url('images/background_home.svg')">
+<body class="w-auto h-screen bg-cover" style="background-image: url('images/background_home.svg')">
   
    
